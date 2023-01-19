@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CVP</title>
+  
+  <style>
+  	
+     body {
+          background-color: #000000;
+          text-align: center;
+          align-items: center;
+          justify-content: center;
+} 
+
+     .centered {
+          margin: -5px;
+}
+	
+     .container {
+         display: flex;
+         align-items: center; 
+         justify-content: center;
+}
+
+     .id-text {
+         text-align: center;
+}
+
+     .like {
+         text-align: center;
+}
+
+       p {
+color: white;
+text-align: center;
+}
+      div {
+color: white;
+text-align: center;
+}
+       .center-title {
+color: white;
+text-align: center;
+margin-top: 15px;
+}
+        
+  	.stack-btn {
+width: 70px;
+height: 35px;
+border: "5";
+background-color: #4CAF50;
+color: white;
+font-size: 12px;
+cursor: pointer;
+margin: 10px;
+border-radius: 15px;
+}
+
+      .knife-btn {
+width: 70px;
+height: 35px;
+border: "5";
+background-color: #4CAF50;
+color: white;
+font-size: 12px;
+cursor: pointer;
+margin: 10px;
+border-radius: 15px;
+}
+
+    .subway-btn {
+width: 70px;
+height: 35px;
+border: "5";
+background-color: #4CAF50;
+color: white;
+font-size: 12px;
+cursor: pointer;
+margin: 10px;
+border-radius: 15px;
+}
+
+   .suchi-btn {
+width: 70px;
+height: 35px;
+border: "5";
+background-color: #4CAF50;
+color: white;
+font-size: 12px;
+cursor: pointer;
+margin: 10px;
+border-radius: 15px;
+} 
+
+</style>
+
+</head>
+<body class="centered" onload="load()">
+  <h1 class="center-title">Crypto ViT Pro</h1>
+  <div class="container">
+           
+  </div>
+   
+  <script>
+  	
+    function load() {
+        // Crear el botón de recargar vida
+        var reloadBtn = document.createElement("BUTTON");
+        reloadBtn.innerHTML = "Stack";
+        reloadBtn.classList.add("stack-btn");
+        document.body.appendChild(reloadBtn);
+        
+        var reloadBtn1 = document.createElement("BUTTON");
+        reloadBtn1.innerHTML = "knife";
+        reloadBtn1.classList.add("knife-btn");
+        document.body.appendChild(reloadBtn1);
+        
+        var reloadBtn2 = document.createElement("BUTTON");
+        reloadBtn2.innerHTML = "Subway";
+        reloadBtn2.classList.add("subway-btn");
+        document.body.appendChild(reloadBtn2);
+        
+        var reloadBtn3 = document.createElement("BUTTON");
+        reloadBtn3.innerHTML = "Suchi";
+        reloadBtn3.classList.add("suchi-btn");
+        document.body.appendChild(reloadBtn3);
+
+        // Crear el widget para mostrar el WebView
+        var widget = document.createElement("DIV");
+        widget.setAttribute("id", "widget");
+        widget.style.display = "none";
+        widget.style.width = window.innerWidth + "px";
+        widget.style.height = window.innerHeight + "px";
+
+        document.body.appendChild(widget);
+
+        var webView = document.createElement("IFRAME");
+        webView.setAttribute("id", "webView");
+        webView.style.borderRadius = "20px";
+        webView.style.width = window.innerWidth + "px";
+        webView.style.height = window.innerHeight + "px";
+   
+        widget.appendChild(webView);
+
+        // Asignar función al botón de recargar vida
+        reloadBtn.onclick = function(){
+          widget.style.display = "block";
+          webView.src = "https://www.minijuegos.com/juego/stack/jugar" ;
+        }
+        reloadBtn1.onclick = function(){
+          widget.style.display = "block";
+          webView.src = "https://www.minijuegos.com/juego/knife-hit/jugar" ;
+        }
+        reloadBtn2.onclick = function(){
+          widget.style.display = "block";
+          webView.src = "https://www.minijuegos.com/juego/subway-surfers-winter-holiday/jugar" ;
+        }
+        reloadBtn3.onclick = function(){
+          widget.style.display = "block";
+          webView.src = "https://www.minijuegos.com/juego/sushi-party-io/jugar" ;
+        }
+    }
+    //* Lista de servidores de anuncios a bloquear
+var blockList = ["adserver1.com", "adserver2.net", "adserver3.org"];
+
+// Sobreescribir la función fetch para interceptar las peticiones
+var originalFetch = window.fetch;
+window.fetch = function(input, init) {
+    var url = new URL(input);
+    if (blockList.indexOf(url.hostname) !== -1) {
+        // Si la petición está dirigida a un servidor de anuncios, rechazarla
+        return Promise.reject("Petición bloqueada a " + url.hostname);
+    }
+    // Si no es un servidor de anuncios, ejecutar la petición original
+    return originalFetch(input, init);
+}
+    
+  </script>
+</body>
+</html>
